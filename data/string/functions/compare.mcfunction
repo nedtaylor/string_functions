@@ -44,4 +44,13 @@ $data modify storage compare:strings string1 set value "$(string1)"
 $data modify storage compare:strings string2 set value "$(string2)"
 
 # append or prepend string2, where appropriate
-function string:compare_numerics with storage compare:strings
+function string:_compare_numerics with storage compare:strings
+
+# remove superfluous tags
+data remove storage compare:strings string
+data remove storage compare:strings append
+data remove storage compare:strings power
+data remove storage compare:strings tag
+
+data remove storage compare:string1 storage
+data remove storage compare:string2 storage

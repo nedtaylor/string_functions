@@ -15,7 +15,7 @@ $data modify storage $(storage) len_tag set value "maxlen"
 $data remove storage $(storage) list_padded
 
 # recursively execute
-$function string:pad_list_recursive with storage $(storage)
+$function string_list:_pad_recursive with storage $(storage)
 
 # remove tags
 $data remove storage $(storage) tag

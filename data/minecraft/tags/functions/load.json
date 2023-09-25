@@ -1,6 +1,7 @@
 {
     "values": [
         "constants:load",
-	"string":"load"
+	    "string:load",
+	    "string_list:load"
     ]
 }

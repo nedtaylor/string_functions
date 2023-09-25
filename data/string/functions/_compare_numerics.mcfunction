@@ -17,5 +17,5 @@ $execute if score power string_compare matches 1 run data modify storage $(stora
 $execute if score power string_compare matches 1.. store result storage $(storage) power int 1 run scoreboard players get power string_compare
 
 # if same string this level, call recursively until difference found
-$execute if score $(base_player1)$(append)$(power) string_compare = $(base_player2)$(append)$(power) string_compare run function string:compare_numerics with storage $(storage)
+$execute if score $(base_player1)$(append)$(power) string_compare = $(base_player2)$(append)$(power) string_compare run function string:_compare_numerics with storage $(storage)
 $execute if score $(base_player1)$(append)$(power) string_compare = $(base_player2)$(append)$(power) string_compare run return 0

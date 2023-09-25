@@ -13,9 +13,9 @@ $scoreboard players set indexplus1 string_compare $(index)
 scoreboard players add indexplus1 string_compare 1
 
 # move to next storage if too large
-$execute if score index string_compare matches $(up_index).. run function string:to_numeric_raise_power with storage $(storage)
+$execute if score index string_compare matches $(up_index).. run function string:_to_numeric_raise_power with storage $(storage)
 $execute if score index string_compare matches $(up_index).. run return 0
 
 # recursive run if not at limit
 $execute unless score indexplus1 string_compare matches $(len).. run scoreboard players operation $(tmp_player) string_compare *= 28 constants
-$execute unless score indexplus1 string_compare matches $(len).. run function string:to_numeric_recursive with storage $(storage)
+$execute unless score indexplus1 string_compare matches $(len).. run function string:_to_numeric_recursive with storage $(storage)

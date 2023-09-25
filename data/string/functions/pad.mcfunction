@@ -13,4 +13,7 @@ $execute store result score index string_compare run data get storage $(storage)
 $execute store result score maxlen string_compare run data get storage $(storage) $(len_tag)
 
 # execute recursive padding
-$execute if score index string_compare < maxlen string_compare run function string:pad_recursive with storage $(storage)
+$execute if score index string_compare < maxlen string_compare run function string:_pad_recursive with storage $(storage)
+
+# reset dummy players
+scoreboard players reset index string_compare

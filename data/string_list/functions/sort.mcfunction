@@ -12,10 +12,10 @@ execute store result storage sort:list len int 1 run data get storage sort:list 
 # $execute as [limit=1,nbt={UUID:$(uuid)}] run execute if entity @e[limit=1,sort=nearest,nbt=!{UUID:$(uuid)},scores={sort=$(score)}] run scoreboard players add @s sort 1
 
 # get maxlen of list elements
-function string:get_list_maxlen with storage sort:list
+function string_list:maxlen with storage sort:list
 
 # pad list elements to largest
-function string:pad_list with storage sort:list
+function string_list:pad with storage sort:list
 
 # set up a new scoreboard objective for string_compare_sorter 
 scoreboard objectives add string_compare_sorter dummy
@@ -26,7 +26,7 @@ scoreboard objectives add string_compare_sorter dummy
 scoreboard players set index string_compare_sorter 0
 data modify storage sort:list index set value 0
 execute store result score len string_compare_sorter run data get storage sort:list len
-function string:sort_summon_armor_stands with storage sort:list
+function string_list:_sort_summon_armor_stands with storage sort:list
 
 # remove superfluous data tags
 data remove storage sort:list list_padded
@@ -51,7 +51,7 @@ data modify storage sort:list indexplus1 set value 1
 data modify storage sort:list uuid set from entity @e[type=minecraft:armor_stand,limit=1,tag=sorter,scores={list_sort=0}] UUID
 
 # recursively run sort_recursive
-function string:sort_recursive with storage sort:list
+function string_list:_sort_recursive with storage sort:list
 
 # unset scoreboards
 scoreboard objectives remove list_sort

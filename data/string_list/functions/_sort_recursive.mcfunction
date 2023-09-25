@@ -19,4 +19,4 @@ execute if score index list_sort >= len list_sort run return 0
 
 # get next armour stand UUID
 $data modify storage sort:list uuid set from entity @e[type=minecraft:armor_stand,limit=1,tag=sorter,scores={list_sort=$(indexplus1)}] UUID
-function string:sort_recursive with storage sort:list
+function string_list:_sort_recursive with storage sort:list

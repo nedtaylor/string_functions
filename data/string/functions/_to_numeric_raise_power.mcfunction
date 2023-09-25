@@ -13,4 +13,4 @@ execute if score power string_compare matches 7.. run return 0
 $data modify storage $(storage) tmp_player set value "$(storage)_stor$(power)"
 
 #continue recursive run
-$function string:to_numeric_recursive with storage $(storage)
+$function string:_to_numeric_recursive with storage $(storage)

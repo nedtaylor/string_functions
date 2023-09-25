@@ -17,6 +17,7 @@ $data modify storage $(storage) power set value 0
 
 # reset scores for string numeric storage
 $scoreboard players reset $(storage) string_compare
+$scoreboard players reset $(storage)_stor0 string_compare
 $scoreboard players reset $(storage)_stor1 string_compare
 $scoreboard players reset $(storage)_stor2 string_compare
 $scoreboard players reset $(storage)_stor3 string_compare
@@ -26,7 +27,7 @@ $scoreboard players reset $(storage)_stor6 string_compare
 scoreboard players reset power string_compare
 
 # run recursive character to numeric
-$function string:to_numeric_recursive with storage $(storage)
+$function string:_to_numeric_recursive with storage $(storage)
 
 # remove superfluous tags
 $data remove storage $(storage) tag
@@ -37,3 +38,6 @@ $data remove storage $(storage) tmp_player
 $data remove storage $(storage) tmp_player_base
 $data remove storage $(storage) char
 $data remove storage $(storage) indexplus1
+
+$data remove storage $(storage) len
+$data remove storage $(storage) power

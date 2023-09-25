@@ -1,4 +1,3 @@
-
 # inputs: $(len) $(index)
 # pass in sort:list data storage
 
@@ -28,4 +27,4 @@ execute store result storage sort:list index int 1 run scoreboard players get in
 execute if score index string_compare_sorter >= len string_compare_sorter run return 0
 
 # recursively call self
-function string:sort_summon_armor_stands with storage sort:list
+function string_list:_sort_summon_armor_stands with storage sort:list

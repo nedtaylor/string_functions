@@ -6,7 +6,7 @@ scoreboard players set maxlen string_compare 0
 $execute store result score list_len string_compare run data get storage $(storage) list
 
 # recursively execute
-$function string:get_list_maxlen_recursive with storage $(storage)
+$function string_list:_maxlen_recursive with storage $(storage)
 
 # reset dummy scoreboard players
 scoreboard players reset len_tmp string_compare
@@ -15,4 +15,4 @@ scoreboard players reset list_len string_compare
 scoreboard players reset maxlen string_compare
 
 # remove superfluous storage tags
-data remove storage $(storage) list_index
+$data remove storage $(storage) list_index
