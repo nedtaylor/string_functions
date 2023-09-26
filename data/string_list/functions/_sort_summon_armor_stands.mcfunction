@@ -2,7 +2,8 @@
 # pass in sort:list data storage
 
 # REPLACE WITH WORLD SPAWNPOINT
-$summon minecraft:armor_stand -270 46 40$(index) {Tags:[sorter,placeholder]}
+$summon minecraft:armor_stand ~ ~0.$(index) ~ {DisabledSlots:16191b,Invisible:1b,Invulnerable:1b,NoGravity:1b,NoBasePlate:1b,Tags:[sorter,placeholder]}
+# $summon minecraft:armor_stand -270 46 40$(index) {Tags:[sorter,placeholder]}
 # $execute as @e[type=minecraft:armor_stand,tag=sorter,tag=placeholder,limit=1] run tp ~ ~ ~$(index)
 
 # set current string to list[$(index)]
