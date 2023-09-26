@@ -26,7 +26,7 @@ scoreboard objectives add string_compare_sorter dummy
 scoreboard players set index string_compare_sorter 0
 data modify storage sort:list index set value 0
 execute store result score len string_compare_sorter run data get storage sort:list len
-function string_list:_sort_summon_armor_stands with storage sort:list
+function string_list:_sort_summon_area_effect_clouds with storage sort:list
 
 # remove superfluous data tags
 data remove storage sort:list list_padded
@@ -34,8 +34,8 @@ data remove storage sort:list string
 
 # set scoreboard sort values
 scoreboard objectives add list_sort dummy
-scoreboard players set @e[type=minecraft:armor_stand,tag=sorter] list_sort 0
-execute as @e[type=minecraft:armor_stand,tag=sorter] at @e[type=minecraft:armor_stand,tag=sorter] if score @s string_compare_sorter > @e[sort=nearest,limit=1,tag=sorter] string_compare_sorter run scoreboard players add @s list_sort 1
+scoreboard players set @e[type=minecraft:area_effect_cloud,tag=sorter] list_sort 0
+execute as @e[type=minecraft:area_effect_cloud,tag=sorter] at @e[type=minecraft:area_effect_cloud,tag=sorter] if score @s string_compare_sorter > @e[sort=nearest,limit=1,tag=sorter] string_compare_sorter run scoreboard players add @s list_sort 1
 
 # remove temporary objective
 scoreboard objectives remove string_compare_sorter
@@ -48,7 +48,7 @@ execute store result score len list_sort run data get storage sort:list list
 # initialise additional sort:list elements
 data modify storage sort:list index set value 0
 data modify storage sort:list indexplus1 set value 1
-data modify storage sort:list uuid set from entity @e[type=minecraft:armor_stand,limit=1,tag=sorter,scores={list_sort=0}] UUID
+data modify storage sort:list uuid set from entity @e[type=minecraft:area_effect_cloud,limit=1,tag=sorter,scores={list_sort=0}] UUID
 
 # recursively run sort_recursive
 function string_list:_sort_recursive with storage sort:list
@@ -64,4 +64,4 @@ data remove storage sort:list power
 data remove storage sort:list len
 
 # kill all armour stands with tag sort 
-kill @e[type=armor_stand,tag=sorter]
+kill @e[type=area_effect_cloud,tag=sorter]
