@@ -6,3 +6,5 @@ scoreboard players set 28 constants 28
 scoreboard players set 481890303 constants 481890303
 # 5 digits for numeric word storage (zzzzz)
 scoreboard players set 17210367 constants 17210367
+# day length, in ticks
+scoreboard players set 24000 constants 24000
